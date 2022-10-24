@@ -10,18 +10,22 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     Customer.findOne({'googleId': profile.id}, function(err, customer){
-        if(err) return cb(err);
+        
+        if(err) console.log(err);
         if(customer){
+            console.log('customer found');
             return cb(null, customer);
         }else{
+            console.log('customer not found');
             const newCustomer = new Customer({
                 name: profile.displayName,
                 email: profile.emails[0].value,
                 googleId: profile.id,
                 gender: profile.gender
             });
+            console.log(newCustomer);
             newCustomer.save(function(err) {
-                if(err) return cb(err);
+                if(err) console.log(err);
                 return cb(null, newCustomer);
             });
         }
