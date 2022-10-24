@@ -9,7 +9,7 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    Customer.findOne({'googleId': profile.id}, function(err, student){
+    Customer.findOne({'googleId': profile.id}, function(err, customer){
         if(err) return cb(err);
         if(customer){
             return cb(null, customer);

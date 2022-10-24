@@ -49,7 +49,7 @@ const customerSchema = new Schema ({
     type: [weightSchema],
    },
    exercise: {
-    type: [exerciseSchema],
+    type: [{type: Schema.Types.ObjectId, ref: 'Exercise'}],
    },
    googleId: {
     type: String,

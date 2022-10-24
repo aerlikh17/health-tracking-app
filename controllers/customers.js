@@ -14,8 +14,8 @@ function create (req, res) {
 
 function index (req, res) {
     Customer.find({}, function(err, customers) {
-        if (err) res.send(err.message);
-        res.render('customers/index.ejs', {
+        if (err) console.log(err.message);
+        res.render('customers/show.ejs', {
             customers,
             name: req.query.name,
             sortKey,

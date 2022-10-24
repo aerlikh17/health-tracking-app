@@ -1,8 +1,8 @@
 var router = require('express').Router();
 const passport = require('passport');
 
-router.get('/', function(req, res) {
-  res.redirect('customers/index.ejs');
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Hello'});
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -23,4 +23,3 @@ router.get('/logout', function(req, res) {
 });
 
 module.exports = router;
-

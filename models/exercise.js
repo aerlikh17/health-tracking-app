@@ -13,7 +13,7 @@ const exerciseSchema = new Schema ({
         type: String,
         enum: []
     },
-    flight: [{ type: Schema.Types.ObjectId, ref: 'Flight'}]
+    customer: [{ type: Schema.Types.ObjectId, ref: 'Customer'}]
 });
 
 module.exports = mongoose.model('Exercise', exerciseSchema);
