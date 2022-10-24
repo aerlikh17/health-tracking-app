@@ -35,7 +35,6 @@ const customerSchema = new Schema ({
    },
    gender: {
     type: String,
-    enum: ['Female', 'Male'],
    },
    height: {
     type: Number,
@@ -52,6 +51,9 @@ const customerSchema = new Schema ({
    exercise: {
     type: [exerciseSchema],
    },
+   googleId: {
+    type: String,
+   }
 });
 
 module.exports = mongoose.model('Customer', customerSchema);
