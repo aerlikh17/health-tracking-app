@@ -15,6 +15,11 @@ function create (req, res) {
 function index (req, res) {
     Customer.find({}, function(err, customers) {
         if (err) res.send(err.message);
-        res.render('customers/index.ejs', {title: 'Your Info', customers});
+        res.render('customers/index.ejs', {
+            customers,
+            name: req.query.name,
+            sortKey,
+            user: req.user,
+        })
     }
 )};
