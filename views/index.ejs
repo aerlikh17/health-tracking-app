@@ -15,7 +15,7 @@
             <tr>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
-              <td><%= user.bmi %></td>
+              <td><%= user.BMI.forEach((i) => console.log(i)) %></td>
               <td><a href="/customers/log-detail">DETAILS</a></td>
             </tr>
           </tbody>

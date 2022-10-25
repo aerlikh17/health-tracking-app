@@ -38,17 +38,19 @@ function bmiCalculate (req, res) {
         // });
     // });
     let id = req.user.id
-    Customer.findByIdAndUpdate(id, { BMI: user },
-    function (err, docs) {
-    if (err){
-        console.log(err)
-    }
-    else{
-        console.log("Updated User : ", docs);
-    }
-});
+    req.user.save(function(err, user) {
+        res.render('customers/bmi', { bmi, user: req.user });
+    })
+    // Customer.findByIdAndUpdate(id, { BMI: user },
+    // function (err, docs) {
+    // if (err){
+    //     console.log(err)
+    // }
+    // else{
+    //     console.log("Updated User : ", docs);
+    // }
+// });
     // console.log(req.user)
-    res.render('customers/bmi', { bmi, user: req.user });
   }
 
 function bmiShow (req, res) {
