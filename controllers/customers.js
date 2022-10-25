@@ -2,6 +2,7 @@ const Customer = require('../models/customer');
 
 module.exports = {
     index,
+    bmiCalculate
 };
 
 function show (req, res) {
@@ -13,13 +14,13 @@ function create (req, res) {
 };
 
 function index (req, res) {
-    Customer.find({}, function(err, customers) {
-        if (err) console.log(err.message);
-        res.render('customers/show.ejs', {
-            customers,
-            name: req.query.name,
-            sortKey,
-            user: req.user,
-        })
-    }
-)};
+    res.render('index', { title: 'Hello', user: req.user });
+};
+
+function bmiCalculate (req, res) {
+    //let BMI 
+    //if statement for female/male
+    //BMI or bmi:BMI
+    //inside ejs bmi inside alligator brackets
+    res.render('customers/bmi', { user: req.user});
+};

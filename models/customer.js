@@ -46,7 +46,7 @@ const customerSchema = new Schema ({
     type: [moodSchema],
    },
    weight: {
-    type: [weightSchema],
+    type: Number,
    },
    exercise: {
     type: [{type: Schema.Types.ObjectId, ref: 'Exercise'}],

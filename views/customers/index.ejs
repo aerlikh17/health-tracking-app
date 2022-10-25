@@ -1,3 +1,28 @@
-<%- include('../partials/header') %>
-<h1>Hello</h1>
-<%- include('../partials/footer') %>
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if (user) { %>
+      <%- include('./partials/header') %>
+      <table id="list">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Release<br>Year</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><a href="/customers/<%= user._id %>">DETAILS</a></td>
+            </tr>
+          </tbody>
+        </table>
+  <% } else { %>
+      <a href="/auth/google">Login with Google</a>
+  <% } %>
+  </body>
+  <%- include('./partials/footer') %>
+</html>
+

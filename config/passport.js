@@ -10,13 +10,11 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     Customer.findOne({'googleId': profile.id}, function(err, customer){
-        
+        // console.log(profile)
         if(err) console.log(err);
         if(customer){
-            console.log('customer found');
             return cb(null, customer);
         }else{
-            console.log('customer not found');
             const newCustomer = new Customer({
                 name: profile.displayName,
                 email: profile.emails[0].value,
@@ -25,6 +23,7 @@ passport.use(new GoogleStrategy({
             });
             console.log(newCustomer);
             newCustomer.save(function(err) {
+                console.log(err);
                 if(err) console.log(err);
                 return cb(null, newCustomer);
             });

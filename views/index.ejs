@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
     <% if (user) { %>
-      <a href="/logout">Log Out</a>
+      <%- include('./partials/header') %>
+      <table id="list">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Release<br>Year</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><a href="/customers/<%= user._id %>">DETAILS</a></td>
+            </tr>
+          </tbody>
+        </table>
   <% } else { %>
       <a href="/auth/google">Login with Google</a>
   <% } %>
   </body>
+  <%- include('./partials/footer') %>
 </html>
 
