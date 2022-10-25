@@ -2,6 +2,23 @@
   margin-left: 15px;
 }
 
-.nav-wrapper {
-  background-color: green;
+nav {
+  background-color: green !important;
 }
+
+.nav-wrapper {
+  background-color: green !important;
+}
+
+#loginForm {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#loginForm[type = "submit"] {
+  width: 10rem;
+  grid-column: 2 / 3;
+}
+

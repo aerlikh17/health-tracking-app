@@ -26,6 +26,15 @@ const exerciseSchema = new Schema ({
 
 });
 
+const bmiSchema = new Schema ([{
+    height: {
+        type: Number,
+       },
+    weight: {
+        type: Number,
+    }
+}])
+
 const customerSchema = new Schema ({
    name: {
     type: String,
@@ -40,7 +49,7 @@ const customerSchema = new Schema ({
     type: Number,
    },
    BMI: {
-    type: Number,
+    type: [bmiSchema],
    },
    mood: {
     type: [moodSchema],

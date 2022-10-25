@@ -1,3 +1,24 @@
 <%- include('../partials/header') %>
-
+    <div id="MAIN">
+        <h1 id="heading">BMI-CALCULATOR</h1>
+    </div>
+    <form action="/customers/bmi" method="post">
+        <input id="height"
+               name="height"
+               required
+               placeholder="Enter your height(m)" />
+        <br />
+        <input id="weight"
+               name="weight"
+               required
+               placeholder="Enter your weight(kg)" />
+        <br />
+        <button class="btn"
+                type="submit">Get-BMI</button>
+    </form>
+    <% if(bmi != 567){ %>
+        <p>Your BMI is <%= bmi %></p>
+    <% }else{ %>
+        <p></p>
+    <% } %>
 <%- include('../partials/footer') %>
