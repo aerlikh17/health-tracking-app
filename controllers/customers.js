@@ -1,4 +1,5 @@
 const Customer = require('../models/customer');
+const Log = require('../models/log');
 
 function show(req, res) {
 
@@ -25,8 +26,8 @@ function bmiCalculate(req, res) {
     bmi = bmi.toFixed();
 
     Customer.findById(req.user.id, function (err, customer) {
-
-
+        let newLog = new Log(req.body);
+        console.log(newLog);
         // movie as argument is an object.
         if (err) return res.render(err.message);
         customer.BMI.push(Number(bmi))
@@ -37,25 +38,6 @@ function bmiCalculate(req, res) {
             res.render('customers/bmi', { bmi, user: req.user });
         });
     });
-    // Customer.findByIdAndUpdate(req.user.id, { name: 'cast'})
-    // Customer.findOneAndUpdate(req.user.id, function(err, customer) {
-    //     console.log(customer, 'line 30')
-    //     customer.name = 'Anastasiia'
-    // customer.save(function(err) {
-    //     res.redirect(`/customers/${user._id}`);
-    // });
-    // });
-
-    // Customer.findByIdAndUpdate(id, { BMI: user },
-    // function (err, docs) {
-    // if (err){
-    //     console.log(err)
-    // }
-    // else{
-    //     console.log("Updated User : ", docs);
-    // }
-    // });
-    // console.log(req.user)
 }
 
 function bmiShow(req, res) {
@@ -63,13 +45,6 @@ function bmiShow(req, res) {
     res.render('customers/bmi', { bmi, user: req.user });
 };
 
-function addBmi(req, res, next) {
-    console.log(req.user);
-    // req.user.bmi.push(req.body);
-    // req.user.save(function(err) {
-    // res.redirect('/customers');
-    //  });
-};
 
 function bmiForm(req, res) {
     if (req.user.weight != undefined) {
@@ -100,5 +75,4 @@ module.exports = {
     weightLog,
     moodLog,
     logDetail,
-    addBmi
 };
