@@ -17,8 +17,7 @@ function create(req, res) {
 
 function index(req, res) {
     if(req.user){
-    console.log(req.user);
-    Customer.findById(req.user._id).populate({path:'logs'}).exec(function(err, currentCustomer) {
+    Customer.findById(req.user._id).populate({path:'log'}).exec(function(err, currentCustomer) {
         console.log('logs', currentCustomer);
         if(err) console.log(err);
         res.render('index', { title: 'Hello', user: req.user, currentCustomer });

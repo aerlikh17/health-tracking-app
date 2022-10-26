@@ -16,6 +16,14 @@
             </tr>
           </tbody>
         </table>
+        <% logs.forEach(function(l) { %>
+          <li>
+            <form action="/logs/<%= logs.id %>?_method=DELETE"
+              class="delete-form" method="POST">
+              <button type="submit">X</button>
+            </form>
+          </li>
+          <% } %>
   <% } else { %>
       <a href="/auth/google">Login with Google</a>
   <% } %>
