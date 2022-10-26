@@ -1,20 +1,20 @@
 const Customer = require('../models/customer');
 
-function show (req, res) {
+function show(req, res) {
 
 };
 
-function create (req, res) {
-    Customer.findById(req.params.id, function(err, customer) {
+function create(req, res) {
+    Customer.findById(req.params.id, function (err, customer) {
         customer.height.push(req.body);
         customer.gender.push(req.body);
-        customer.save(function(err) {
+        customer.save(function (err) {
             res.redirect(`/customers/${user._id}`);
         });
     });
 };
 
-function index (req, res) {
+function index(req, res) {
     res.render('index', { title: 'Hello', user: req.user });
 };
 
@@ -25,9 +25,12 @@ function bmiCalculate(req, res) {
     bmi = bmi.toFixed();
 
     Customer.findById(req.user.id, function (err, customer) {
+
+
         // movie as argument is an object.
         if (err) return res.render(err.message);
         customer.BMI.push(Number(bmi))
+
         // pushes the request body, pushes it to the object of 'drinker'
         customer.save(function (err) {
             if (err) { console.log("error log", err) }
@@ -55,37 +58,37 @@ function bmiCalculate(req, res) {
     // console.log(req.user)
 }
 
-function bmiShow (req, res) {
+function bmiShow(req, res) {
     let bmi = 567;
     res.render('customers/bmi', { bmi, user: req.user });
 };
 
-// function addBmi (req, res, next) {
-//     console.log(req.user);
-//     // req.user.bmi.push(req.body);
-//     // req.user.save(function(err) {
-//     // res.redirect('/customers');
-// //  });
-// };
+function addBmi(req, res, next) {
+    console.log(req.user);
+    // req.user.bmi.push(req.body);
+    // req.user.save(function(err) {
+    // res.redirect('/customers');
+    //  });
+};
 
-function bmiForm (req, res) {
+function bmiForm(req, res) {
     if (req.user.weight != undefined) {
         res.redirect('index')
-    }else{
+    } else {
         res.render('customers/bmi', { user: req.user });
     }
 };
 
 function weightLog(req, res) {
-    res.render('customers/weight', {user: req.user});
+    res.render('customers/weight', { user: req.user });
 }
 
 function moodLog(req, res) {
-    res.render('customers/mood', {user: req.user});
+    res.render('customers/mood', { user: req.user });
 }
 
 function logDetail(req, res) {
-    res.render('customers/log-detail', {user: req.user});
+    res.render('customers/log-detail', { user: req.user });
 }
 
 module.exports = {
@@ -94,7 +97,8 @@ module.exports = {
     bmiForm,
     bmiShow,
     create,
-    weightLog, 
+    weightLog,
     moodLog,
     logDetail,
+    addBmi
 };
