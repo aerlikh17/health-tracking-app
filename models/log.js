@@ -23,7 +23,7 @@ const logSchema = new Schema({
     BMI: {
         type: [Number],
     },
-    customer: [{ type: Schema.Types.ObjectId, ref: 'Customer'}]
+    customer: { type: Schema.Types.ObjectId, ref: 'Customer'}
 });
 
 module.exports = mongoose.model('Log', logSchema);

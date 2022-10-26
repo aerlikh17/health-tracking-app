@@ -10,14 +10,15 @@ nav {
   background-color: green !important;
 }
 
-#loginForm {
+#logForm {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
   margin-bottom: 2rem;
+  margin-left: 2em;
 }
 
-#loginForm[type = "submit"] {
+#logForm[type = "submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }

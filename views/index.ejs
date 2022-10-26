@@ -3,17 +3,25 @@
       <table id="list">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Release<br>Year</th>
-            <th>Bmi</th>
+            <th>Date</th>
+            <th>BMI</th>
+            <th>Mood</th>
+            <th>Weight</th>
+            <th>Exercise</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
             <tr>
-              <td><%= user.name %></td>
+              p
+              <td><%= log %></td>
+              <td><%= user.email %></td>
+              <td><%= user.BMI.forEach((i) => console.log(i)) %></td>
               <td><%= user.email %></td>
               <td><%= user.BMI.forEach((i) => console.log(i)) %></td>
               <td><a href="/customers/log-detail">DETAILS</a></td>
+              <td><a href="/customers/log-detail">DELETE</a></td>
             </tr>
           </tbody>
         </table>

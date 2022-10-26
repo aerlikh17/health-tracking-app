@@ -21,9 +21,6 @@ function index(req, res) {
 };
 
 function bmiCalculate(req, res) {
-    // console.log('test2', req.user);
-    let log = Log.findMany(req.user.log);
-    console.log('test object', log);
     height = parseFloat(req.body.height);
     weight = parseFloat(req.body.weight);
     bmi = (weight / (height * height)) * 10000;
@@ -37,17 +34,17 @@ function bmiCalculate(req, res) {
         newLog.type = req.body.type;
         newLog.customer = req.user.id;
         newLog.save();
-        // customer.log.push(newLog);
 
-        console.log(newLog);
         // movie as argument is an object.
         if (err) return res.render(err.message);
         customer.BMI.push(Number(bmi));
 
         // pushes the request body, pushes it to the object of 'drinker'
         customer.save(function (err) {
+            console.log(req.user.log)
+            let logObject = Log.find({'customer': req.user.id});
             if (err) { console.log("error log", err) }
-            res.render('customers', { bmi, user: req.user });
+            res.render('customers', { bmi, user: req.user, log: logObject});
         });
     });
 }
