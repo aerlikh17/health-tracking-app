@@ -16,8 +16,17 @@ function create(req, res) {
 };
 
 function index(req, res) {
-    // let log = req.user
-    res.render('index', { title: 'Hello', user: req.user, log: req });
+    if(req.user){
+    console.log(req.user);
+    Customer.findById(req.user._id).populate({path:'logs'}).exec(function(err, currentCustomer) {
+        console.log('logs', currentCustomer);
+        if(err) console.log(err);
+        res.render('index', { title: 'Hello', user: req.user, currentCustomer });
+    });
+    console.log('index');
+    }else{
+        res.render('index', { title: 'Hello', user: req.user });
+    }  
 };
 
 function bmiCalculate(req, res) {
@@ -26,27 +35,24 @@ function bmiCalculate(req, res) {
     bmi = (weight / (height * height)) * 10000;
     bmi = bmi.toFixed();
 
-    Customer.findById(req.user.id, function (err, customer) {
         let newLog = new Log(req.body);
 
         newLog.BMI.push(Number(bmi));
         newLog.duration = req.body.duration;
         newLog.type = req.body.type;
         newLog.customer = req.user.id;
+        req.user.log.push(newLog._id);
         newLog.save();
 
-        // movie as argument is an object.
-        if (err) return res.render(err.message);
-        customer.BMI.push(Number(bmi));
+        req.user.BMI.push(Number(bmi));
 
         // pushes the request body, pushes it to the object of 'drinker'
-        customer.save(function (err) {
+        req.user.save(function (err) {
             console.log(req.user.log)
             let logObject = Log.find({'customer': req.user.id});
             if (err) { console.log("error log", err) }
             res.render('customers', { bmi, user: req.user, log: logObject});
         });
-    });
 }
 
 // Customer.findById(req.user.id, function (err, customer) {
