@@ -49,6 +49,28 @@ function bmiCalculate(req, res) {
     });
 }
 
+// Customer.findById(req.user.id, function (err, customer) {
+//     let newLog = new Log(req.body);
+
+//     newLog.BMI.push(Number(bmi));
+//     newLog.duration = req.body.duration;
+//     newLog.type = req.body.type;
+//     newLog.customer = req.user.id;
+//     newLog.save();
+
+//     // movie as argument is an object.
+//     if (err) return res.render(err.message);
+//     customer.BMI.push(Number(bmi));
+
+//     // pushes the request body, pushes it to the object of 'drinker'
+//     customer.save(function (err) {
+//         console.log(req.user.log)
+//         let logObject = Log.find({'customer': req.user.id});
+//         if (err) { console.log("error log", err) }
+//         res.render('customers', { bmi, user: req.user, log: logObject});
+//     });
+// });
+
 function bmiShow(req, res) {
     let bmi = 567;
     res.render('customers/bmi', { bmi, user: req.user });
