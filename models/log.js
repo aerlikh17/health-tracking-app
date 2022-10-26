@@ -24,6 +24,10 @@ const logSchema = new Schema({
         type: [Number],
     },
     customer: { type: Schema.Types.ObjectId, ref: 'Customer'}
+}, {
+    timestamps: {
+        createdAt: 'created_at',
+      }
 });
 
 module.exports = mongoose.model('Log', logSchema);

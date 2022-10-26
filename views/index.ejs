@@ -13,19 +13,24 @@
           </tr>
         </thead>
         <tbody>
-            <tr>
-              p
-              <td><%= currentCustomer.log[0].mood %></td>
-              <td><%= user.email %></td>
-              <td></td>
-              <td><%= user.email %></td>
-              <td></td>
-              <td><a href="/customers/log-detail">DETAILS</a></td>
-              <td><a href="/customers/log-detail">DELETE</a></td>
-            </tr>
-          </tbody>
-        </table>
-        
+        <% logs.forEach(function(l) { %>
+          <tr>
+            <td><%= l.created_at %></td>
+            <td><%= l.BMI %></td>
+            <td><%= l.mood %></td>
+            <td><%= user.email %></td>
+            <td></td>
+            <td><a href="/customers/log-detail">DETAILS</a></td>
+            <td>
+              <form action="/logs/<%= logs.id %>?_method=DELETE"
+                id="delete-form" method="POST">
+                <button type="submit">X</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
         <button><a href=customers/bmi>UPDATE LOG</button>
   <% } else { %>
       <a href="/auth/google">Login with Google</a>

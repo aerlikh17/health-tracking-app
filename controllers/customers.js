@@ -20,7 +20,7 @@ function index(req, res) {
     Customer.findById(req.user._id).populate({path:'log'}).exec(function(err, currentCustomer) {
         console.log('logs', currentCustomer);
         if(err) console.log(err);
-        res.render('index', { title: 'Hello', user: req.user, currentCustomer });
+        res.render('index', { title: 'Hello', user: req.user, currentCustomer, logs: currentCustomer.log });
     });
     console.log('index');
     }else{
@@ -90,17 +90,16 @@ function bmiForm(req, res) {
     }
 };
 
-function weightLog(req, res) {
-    res.render('customers/weight', { user: req.user });
-}
+// function deleteLog(req, res) {
+//     Log.deleteOne(req.params.id);
+//     res.redirect('/logs');
+// }
 
-function moodLog(req, res) {
-    res.render('customers/mood', { user: req.user });
-}
-
-function logDetail(req, res) {
-    res.render('customers/log-detail', { user: req.user });
-}
+// function deleteOne(id) {
+//     // Find the index based on the id of the todo object
+//     const idx = logs.findIndex(log => log.id === parseInt(id));
+//     logs.splice(idx, 1);
+//   }
 
 module.exports = {
     index,
@@ -108,7 +107,6 @@ module.exports = {
     bmiForm,
     bmiShow,
     create,
-    weightLog,
-    moodLog,
-    logDetail,
+    // delete: deleteLog,
+    // deleteOne
 };
