@@ -27,10 +27,17 @@ function bmiCalculate(req, res) {
 
     Customer.findById(req.user.id, function (err, customer) {
         let newLog = new Log(req.body);
+        let exercise = { duration: req.body.duration, type: req.body.type };
+
+        newLog.BMI.push(Number(bmi));
+        newLog.exercise.push(exercise);
+        newLog.save();
+        customer.log.push(newLog);
+
         console.log(newLog);
         // movie as argument is an object.
         if (err) return res.render(err.message);
-        customer.BMI.push(Number(bmi))
+        customer.BMI.push(Number(bmi));
 
         // pushes the request body, pushes it to the object of 'drinker'
         customer.save(function (err) {
