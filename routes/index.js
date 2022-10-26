@@ -2,6 +2,8 @@ var router = require('express').Router();
 const passport = require('passport');
 
 router.get('/', function(req, res, next) {
+  let log = req.user
+  console.log('test', log);
   res.redirect('/customers');
 });
 

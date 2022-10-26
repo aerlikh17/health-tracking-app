@@ -16,10 +16,14 @@ function create(req, res) {
 };
 
 function index(req, res) {
-    res.render('index', { title: 'Hello', user: req.user });
+    // let log = req.user
+    res.render('index', { title: 'Hello', user: req.user, log: req });
 };
 
 function bmiCalculate(req, res) {
+    // console.log('test2', req.user);
+    let log = Log.findMany(req.user.log);
+    console.log('test object', log);
     height = parseFloat(req.body.height);
     weight = parseFloat(req.body.weight);
     bmi = (weight / (height * height)) * 10000;
