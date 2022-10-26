@@ -27,12 +27,13 @@ function bmiCalculate(req, res) {
 
     Customer.findById(req.user.id, function (err, customer) {
         let newLog = new Log(req.body);
-        let exercise = { duration: req.body.duration, type: req.body.type };
 
         newLog.BMI.push(Number(bmi));
-        newLog.exercise.push(exercise);
+        newLog.duration = req.body.duration;
+        newLog.type = req.body.type;
+        newLog.customer = req.user.id;
         newLog.save();
-        customer.log.push(newLog);
+        // customer.log.push(newLog);
 
         console.log(newLog);
         // movie as argument is an object.
@@ -42,7 +43,7 @@ function bmiCalculate(req, res) {
         // pushes the request body, pushes it to the object of 'drinker'
         customer.save(function (err) {
             if (err) { console.log("error log", err) }
-            res.render('customers/bmi', { bmi, user: req.user });
+            res.render('customers', { bmi, user: req.user });
         });
     });
 }
