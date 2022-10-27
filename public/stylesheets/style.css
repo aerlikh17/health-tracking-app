@@ -14,20 +14,11 @@ nav {
 .nav-wrapper {
   background-color: green !important;
 }
-/* 
-#logForm {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
-  
-}
 
 #logForm[type = "submit"] {
   width: 10rem;
   grid-column: 2 / 3;
-} */
+}
 
 .delete-form {
   display: inline-block;
@@ -43,9 +34,23 @@ li {
 }
 
 #MAIN {
-  margin: 100px
+  margin: 250px;
+  text-align: center;
 }
 
 .main-list {
-  margin: 100px
+  margin: 100px;
+  text-align: center;
+}
+
+#update-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 3px solid green; 
+}
+
+h1 {
+  size: 10px;
 }

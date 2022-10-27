@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
  <div class = "browser-default" id="MAIN">
-        <h1 id="logH1">Enter the following to update your health log:</h1>
+        <h1 id="logH1">Update your health log:</h1>
     <form id='logForm' action="/customers" method="post">
         <input id="height"
                name="height"
@@ -12,25 +12,24 @@
                required
                placeholder="Enter your weight(kg)" />
         <br />
-        <input id="mood"
-               name="mood"
-               required
-               placeholder="How are you feeling today?" />
-        <br />
-              <input id="exercise-type"
-               name="type"
-               required
-               placeholder="type" />
-        <br />
-         <input id="exercise-duration"
-               name="duration"
-               required
-               placeholder="duration, minutes" />
-    </form>
+        <label for="mood">How are you feeling today?</label>
         <select class = "browser-default" name="mood">
-        <option value="happy">Happy</option>
-        <option value="sad">Sad</option>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
         </select>
+        <br />
+        <label for="exercise-type">How are you feeling today?</label>
+        <select class = "browser-default" name="exercise-type">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+        </select>
+        <br />
+        <label for="exercise-duration">How are you feeling today?</label>
+        <select class = "browser-default" name="exercise-duration">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+        </select>
+    </form>
         <br />
         <button class="btn"
                 type="submit">SAVE</button>
