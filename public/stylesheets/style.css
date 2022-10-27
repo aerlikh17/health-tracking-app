@@ -10,7 +10,7 @@ nav {
   background-color: green !important;
 }
 
-#logForm {
+.logForm {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
@@ -19,7 +19,7 @@ nav {
   
 }
 
-#logForm[type = "submit"] {
+.logForm[type = "submit"] {
   width: 10rem;
   grid-column: 2 / 3;
 }

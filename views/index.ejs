@@ -22,7 +22,7 @@
             <td><%= l.weight %></td>
             <td><%= l.exercise %></td>
             <td>
-              <form action="/logs/<%= logs.id %>?_method=DELETE"
+              <form action="/logs/<%= l._id %>?_method=DELETE"
                 id="delete-form" method="POST">
                 <button type="submit">X</button>
               </form>
@@ -33,7 +33,7 @@
     </table>
         <button><a href=customers/bmi>UPDATE LOG</button>
   <% } else { %>
-      <a href="/auth/google">Login with Google</a>
+    <%- include('./partials/login-page') %>
   <% } %>
   <%- include('./partials/footer') %>
 

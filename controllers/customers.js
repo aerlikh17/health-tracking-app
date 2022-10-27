@@ -15,17 +15,15 @@ function create(req, res) {
 function index(req, res) {
     if(req.user){
     Customer.findById(req.user._id).populate({path:'log'}).exec(function(err, currentCustomer) {
-        console.log('logs', currentCustomer);
         if(err) console.log(err);
         res.render('index', { title: 'Hello', user: req.user, currentCustomer, logs: currentCustomer.log });
     });
-    console.log('index');
     }else{
         res.render('index', { title: 'Hello', user: req.user });
     }  
 };
 
-function bmiCalculate(req, res) {
+function logData(req, res) {
     height = parseFloat(req.body.height);
     weight = parseFloat(req.body.weight);
     bmi = (weight / (height * height)) * 10000;
@@ -47,7 +45,8 @@ function bmiCalculate(req, res) {
             console.log(req.user.log)
             let logObject = Log.find({'customer': req.user.id});
             if (err) { console.log("error log", err) }
-            res.render('customers', { bmi, user: req.user, log: logObject});
+            // res.render('index', { bmi, user: req.user, log: logObject});
+            res.redirect('/customers');
         });
 }
 
@@ -71,13 +70,17 @@ function deleteOne(id) {
 }
 
 function deleteLog(req, res) {
-    Log.deleteOne(req.params.id);
-    res.redirect('/customers');
+    console.log(req.params.id)
+    Log.deleteOne({'_id': req.params.id}, function(err, log) {
+        if(err) console.log(err);
+        console.log(log);
+        res.redirect('/customers');
+    });
 }
 
 module.exports = {
     index,
-    bmiCalculate,
+    logData,
     bmiForm,
     bmiShow,
     create,

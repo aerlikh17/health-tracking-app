@@ -12,7 +12,7 @@ const logSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['Endurance', 'Strength', 'Balance', 'Flexibility']
+        enum: ['Endurance', 'Strength', 'Balance', 'Flexibility', 'None']
     },
     weight: {
         type: Number,
