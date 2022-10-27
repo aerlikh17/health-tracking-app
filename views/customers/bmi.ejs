@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
     <div id="MAIN">
         <h1 id="logH1">Enter the following to update your health log:</h1>
-    <form class='logForm' action="/customers" method="post">
+    <form id='logForm' action="/customers" method="post">
         <input id="height"
                name="height"
                required
@@ -17,6 +17,13 @@
                required
                placeholder="How are you feeling today?" />
         <br />
+        <label for="cars">Choose a car:</label>
+<select name="cars" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
               <input id="exercise-type"
                name="type"
                required
