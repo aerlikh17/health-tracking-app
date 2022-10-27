@@ -58,6 +58,11 @@ function bmiForm(req, res) {
     }
 };
 
+function bmiShow(req, res) {
+    let bmi = 567;
+    res.render('customers/bmi', { bmi, user: req.user });
+};
+
 function deleteOne(id) {
     const idx = logs.findIndex(log => log.id === parseInt(id));
     logs.splice(idx, 1);
@@ -78,5 +83,6 @@ module.exports = {
     bmiForm,
     create,
     delete: deleteLog,
-    deleteOne
+    deleteOne,
+    bmiShow
 };
