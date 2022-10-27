@@ -1,7 +1,6 @@
 <%- include('../partials/header') %>
     <div id="MAIN">
-        <h1 id="heading">Please update your log for today:</h1>
-    </div>
+        <h1 id="logH1">Enter the following to update your health log:</h1>
     <form id='logForm' action="/customers" method="post">
         <input id="height"
                name="height"
@@ -31,6 +30,7 @@
         <button class="btn"
                 type="submit">SAVE</button>
     </form>
+</div>
     <% if(bmi != 567){ %>
         <p>Your BMI is <%= bmi %></p>
     <% }else{ %>

@@ -15,7 +15,8 @@ nav {
   grid-template-columns: auto auto;
   grid-gap: 1rem;
   margin-bottom: 2rem;
-  margin-left: 2em;
+  justify-content: center;
+  
 }
 
 #logForm[type = "submit"] {

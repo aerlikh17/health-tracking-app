@@ -65,10 +65,22 @@ function bmiForm(req, res) {
     }
 };
 
+function deleteOne(id) {
+    const idx = logs.findIndex(log => log.id === parseInt(id));
+    logs.splice(idx, 1);
+}
+
+function deleteLog(req, res) {
+    Log.deleteOne(req.params.id);
+    res.redirect('/customers');
+}
+
 module.exports = {
     index,
     bmiCalculate,
     bmiForm,
     bmiShow,
     create,
+    delete: deleteLog,
+    deleteOne
 };
