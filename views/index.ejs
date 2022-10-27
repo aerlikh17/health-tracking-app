@@ -1,5 +1,6 @@
   <% if (user) { %>
       <%- include('./partials/header') %>
+    <div class = "main-list">
       <h1> Hello, <%= user.name %>! </h1>
       <h2> Your health log:</h2>
       <table id="list">
@@ -16,7 +17,7 @@
         <tbody>
         <% logs.forEach(function(l) { %>
           <tr>
-            <td><%= l.created_at %></td>
+            <td><%= l.created_at.toString().substring(0, 15) %></td>
             <td><%= l.BMI %></td>
             <td><%= l.mood %></td>
             <td><%= l.weight %></td>
@@ -32,6 +33,7 @@
       </tbody>
     </table>
         <button><a href=customers/bmi>UPDATE LOG</button>
+  </div>
   <% } else { %>
     <%- include('./partials/login-page') %>
   <% } %>

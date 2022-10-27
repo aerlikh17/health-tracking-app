@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-    <div id="MAIN">
+ <div class = "browser-default" id="MAIN">
         <h1 id="logH1">Enter the following to update your health log:</h1>
     <form id='logForm' action="/customers" method="post">
         <input id="height"
@@ -26,6 +26,11 @@
                name="duration"
                required
                placeholder="duration, minutes" />
+    </form>
+        <select class = "browser-default" name="mood">
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        </select>
         <br />
         <button class="btn"
                 type="submit">SAVE</button>
