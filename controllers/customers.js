@@ -1,9 +1,6 @@
 const Customer = require('../models/customer');
 const Log = require('../models/log');
 
-function show(req, res) {
-
-};
 
 function create(req, res) {
     Customer.findById(req.params.id, function (err, customer) {
@@ -54,28 +51,6 @@ function bmiCalculate(req, res) {
         });
 }
 
-// Customer.findById(req.user.id, function (err, customer) {
-//     let newLog = new Log(req.body);
-
-//     newLog.BMI.push(Number(bmi));
-//     newLog.duration = req.body.duration;
-//     newLog.type = req.body.type;
-//     newLog.customer = req.user.id;
-//     newLog.save();
-
-//     // movie as argument is an object.
-//     if (err) return res.render(err.message);
-//     customer.BMI.push(Number(bmi));
-
-//     // pushes the request body, pushes it to the object of 'drinker'
-//     customer.save(function (err) {
-//         console.log(req.user.log)
-//         let logObject = Log.find({'customer': req.user.id});
-//         if (err) { console.log("error log", err) }
-//         res.render('customers', { bmi, user: req.user, log: logObject});
-//     });
-// });
-
 function bmiShow(req, res) {
     let bmi = 567;
     res.render('customers/bmi', { bmi, user: req.user });
@@ -90,23 +65,10 @@ function bmiForm(req, res) {
     }
 };
 
-// function deleteLog(req, res) {
-//     Log.deleteOne(req.params.id);
-//     res.redirect('/logs');
-// }
-
-// function deleteOne(id) {
-//     // Find the index based on the id of the todo object
-//     const idx = logs.findIndex(log => log.id === parseInt(id));
-//     logs.splice(idx, 1);
-//   }
-
 module.exports = {
     index,
     bmiCalculate,
     bmiForm,
     bmiShow,
     create,
-    // delete: deleteLog,
-    // deleteOne
 };
