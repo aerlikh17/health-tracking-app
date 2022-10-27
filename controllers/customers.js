@@ -50,12 +50,6 @@ function logData(req, res) {
         });
 }
 
-function bmiShow(req, res) {
-    let bmi = 567;
-    res.render('customers/bmi', { bmi, user: req.user });
-};
-
-
 function bmiForm(req, res) {
     if (req.user.weight != undefined) {
         res.redirect('index')
@@ -82,7 +76,6 @@ module.exports = {
     index,
     logData,
     bmiForm,
-    bmiShow,
     create,
     delete: deleteLog,
     deleteOne
