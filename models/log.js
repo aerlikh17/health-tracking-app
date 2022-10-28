@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const logSchema = new Schema({
     mood: {
         type: String,
-        enum: ['happy', 'sad', 'optimistic', 'calm', 'angry', 'pessimstic', 'stressed'],
+        enum: ['Happy', 'Sad', 'Optimistic', 'Calm', 'Angry', 'Pessimstic', 'Stressed'],
     },
     duration: {
         type: Number,

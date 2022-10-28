@@ -1,43 +1,40 @@
 <%- include('../partials/header') %>
- <div class = "browser-default" id="MAIN">
-        <h1 id="logH1">Update your health log:</h1>
-    <form id='logForm' action="/customers" method="post">
-        <input id="height"
-               name="height"
-               required
-               placeholder="Enter your height(m)" />
-        <br />
-        <input id="weight"
-               name="weight"
-               required
-               placeholder="Enter your weight(kg)" />
-        <br />
-        <label for="mood">How are you feeling today?</label>
-        <select class = "browser-default" name="mood">
-            <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
-        </select>
-        <br />
-        <label for="exercise-type">How are you feeling today?</label>
-        <select class = "browser-default" name="exercise-type">
-            <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
-        </select>
-        <br />
-        <label for="exercise-duration">How are you feeling today?</label>
-        <select class = "browser-default" name="exercise-duration">
-            <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
-        </select>
-    </form>
-        <br />
-        <button class="btn"
-                type="submit">SAVE</button>
-    </form>
+<div id="MAIN">
+    <h1 id="heading" style="font-size:40px"><%= user.name %>, please update your health log:</h1>
+<form action="/customers" method="post">
+<form id='logForm' action="/customers" method="post">
+    <input id="height"
+           name="height"
+           required
+           placeholder="Enter your height(m)" />
+    <br />
+    <input id="weight"
+           name="weight"
+           required
+           placeholder="Enter your weight(kg)" />
+    <br />
+    <input id="mood"
+           name="mood"
+           required
+           placeholder="How are you feeling today?" />
+    <br />
+          <input id="exercise-type"
+           name="type"
+           required
+           placeholder="Exercise type" />
+    <br />
+     <input id="exercise-duration"
+           name="duration"
+           required
+           placeholder="Exercise duration(min)" />
+    <br />
+    <br />
+    <button class="btn" style="background-color: green" type="submit">SAVE</button>
+</form>
 </div>
-    <% if(bmi != 567){ %>
-        <p>Your BMI is <%= bmi %></p>
-    <% }else{ %>
-        <p></p>
-    <% } %>
+<% if(bmi != 567){ %>
+    <p>Your BMI is <%= bmi %></p>
+<% }else{ %>
+    <p></p>
+<% } %>
 <%- include('../partials/footer') %>
