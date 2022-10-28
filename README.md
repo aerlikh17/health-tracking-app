@@ -44,14 +44,13 @@ _Login screen:_
 
 Instructions on how to use the app:
 
-1. To start the game, click on the "DEAL" button. 
-2. If both yours and dealer's score is below 21, you can choose to "HIT" or "STAY".
-3. You can click "HIT" as many times as you want as long as your score is below 21. 
-4. If you choose to "STAY" and dealer's score is below 17, dealer's first card will be revealed and they will take another card. 
-5. Alternatively, if you choose to "STAY" and dealer's score is above 17, only dealer's first card will be revealed but they will not get a third card. 
-6. Follow messages on the bottom of the game board. For example, press "RESET" to start the game again. 
+1. Login using google. 
+2. Update your log by filling out the information in the form.
+3. Check your health log that is sorted by day. 
+4. You can delete logs. 
+5. Update the log daily to keep track of your daily habits. 
 
-The link to the app is below. 
+### _Links_
 
 Click [here](https://health-track-app.herokuapp.com/customers) to deploy the app
 
