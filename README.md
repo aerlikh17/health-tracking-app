@@ -59,10 +59,12 @@ Click [here](https://trello.com/invite/b/Ygs4TPGJ/ATTIbbe3dc9ac223b1fbd95ac166b1
 ### _Next steps_
 
 * Work on styling + use a different CSS framework instead of Materialize CSS.
+* Make the styling mobile responsive.
 * Add an API for recipe search.
 * Add a food consumed section with calorie count. 
 * Add features such as graphs for weight fluctuations and BMI graph. 
 * Add a section for personalized suggestions. 
+
 
 
 
