@@ -38,6 +38,7 @@ _Login screen:_
 
 * HTMLS
 * CSS
+* OAuth
 * Node.js 
 * Express.js
 * Mongoose
