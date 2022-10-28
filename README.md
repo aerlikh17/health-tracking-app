@@ -9,39 +9,30 @@
 
 ### _Game description_
 
-Health Tracking App is made for people who want to keep track of various
+Health Tracking App is made for people who want to keep track of their health by keeping a health log that allows to see their progress over time. 
 
-:
-1. The dealer gets closer to 21 points than the player at the end of the round.
-2. If a player has more than 21 points.
-3. If the dealer's hand value goes over 21 points.
-
-It's a tie when:
-1. Both players have the same points on their hands.
-
-Values that are tracked: 
+Values that are tracked with the app are: 
 * BMI
 * Weight
 * Mood
-* Exercise
+* Exercise (type & duration)
 
-Basic rules of the game:
-1. Both players get 2 cards. Dealer's first card is hidden. 
-2. Player goes first and they have an option to "hit" to get more cards or "stay" to skip the round. There is no limit on the number of cards you can take. 
-3. Dealer flips the first card. If dealer's total hand value is 16 or under they have to take another card. If it is 17 or higher, they have to "stay" with their hand. 
+### _App screenshots:_
 
-### _Game screenshots:_
-
-_This is how the game board looks when first cards are dealt:_
-![Game Screenshot](/images/blackjack-game.png "Blackjack Game") 
+_Login screen:_
+![Login Screen](/images/login-screen.jpeg "Login Screen") 
 
 &nbsp;
 
-_An example of a lose situation (player lost as they got more than 21 points in the second round):_
-![Game Screenshot](/images/blackjack-game-lost.png "Blackjack Game Loose Situation")
+_Update log form:_
+![Update Log Form](/images/update-log-form.jpeg "Update Log Form")
 
 &nbsp;
 
+_Login screen:_
+![User's Health Log](/images/health-log-form.jpeg "User's Health Log") 
+
+&nbsp;
 
 ### _Technologies used_
 
@@ -68,11 +59,11 @@ Click [here](https://trello.com/invite/b/Ygs4TPGJ/ATTIbbe3dc9ac223b1fbd95ac166b1
 
 ### _Next steps_
 
-* Work on styling.
+* Work on styling + use a different CSS framework instead of Materialize CSS.
 * Add an API for recipe search.
+* Add a food consumed section with calorie count. 
 * Add features such as graphs for weight fluctuations and BMI graph. 
 * Add a section for personalized suggestions. 
-* Using something else instead of Materialize CSS.
 
 
 
