@@ -36,8 +36,11 @@ _Login screen:_
 
 ### _Technologies used_
 
-* HTMLS/CSS
-* Node.js (Express.js)
+* HTMLS
+* CSS
+* Node.js 
+* Express.js
+* Mongoose
 * MongoDB
 
 ### _Getting started_
