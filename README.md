@@ -36,7 +36,7 @@ _Login screen:_
 
 ### _Technologies used_
 
-* HTMLS
+* HTML
 * CSS
 * OAuth
 * Node.js 
